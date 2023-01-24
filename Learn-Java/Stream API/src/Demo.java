@@ -1,3 +1,4 @@
+import javax.swing.plaf.OptionPaneUI;
 import java.math.BigInteger;
 import java.util.*;
 import java.util.stream.*;
@@ -44,8 +45,24 @@ public class Demo {
 //        System.out.println();
 //        phones.stream().sorted(Comparator.comparing(String::length).reversed()).forEach(System.out::println);
 
-        Object[] powers = Stream.iterate(1.0, it -> it * 2).peek(e -> System.out.println("Fetching " + e)).
-                limit(20).toArray();
+//        Object[] powers = Stream.iterate(1.0, it -> it * 2).peek(e -> System.out.println("Fetching " + e)).
+//                limit(20).toArray();
+
+//        List<Integer> numbers = List.of(1,2,3,4,5);
+//        List<Integer> numbers1 = List.of();
+//        Optional<Integer> largest = numbers.stream().max(Comparator.naturalOrder());
+//        Optional<Integer> largest1 = numbers1.stream().max(Comparator.naturalOrder());
+//        System.out.println("Largest = " + largest.orElse(-1));
+//        System.out.println("Largest1 = " + largest1.orElse(-1));
+
+        String value = "hello";
+        List<String> values = new ArrayList<>();
+        Optional<String> optionalValue = Optional.ofNullable(value);
+        optionalValue.ifPresent(x -> values.add(value));
+        System.out.println(values);
+
+        Optional<Boolean> added = optionalValue.map(values::add);
+        System.out.println(values);
     }
 
     public static Stream<String> letters(String word){
